@@ -129,8 +129,8 @@ def get_replies(videoid,key):
 
 def check_cokie(cookie):
     if cookie == "True":
-        return True
-    return False
+        return False
+    return True
 
 
 
