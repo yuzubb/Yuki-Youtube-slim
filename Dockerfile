@@ -1,10 +1,8 @@
-FROM python:3.8-slim-buster
+FROM python:3.9.2
 
-WORKDIR /app
+COPY requirements.txt requirements,txt
+RUN pip install -r requirements.txt
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-
-COPY . .
+COPY . . 
 
 CMD [ "uvicorn" "--port" "$PORT" "--host" "0.0.0.0" "main:app" ]
