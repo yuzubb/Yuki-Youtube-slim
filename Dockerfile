@@ -1,6 +1,16 @@
-FROM python:3.9-buster
-WORKDIR ./
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
-EXPOSE 8080
-ENTRYPOINT [ "uvicorn", "--host","0.0.0.0","main:app" ]
+FROM python:3.10-slim
+
+# set the working dir.
+WORKDIR /app
+
+# copy the app dir.
+COPY app app
+
+# install libraries.
+RUN pip install --no-cache-dir fastapi uvicorn
+
+# expose the port.
+EXPOSE 8000
+
+# command to run the app using uvicorn.
+CMD ["uvicorn","app.main:app","--host","0.0.0.0","--port","8000"]
