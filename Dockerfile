@@ -1,12 +1,13 @@
 FROM python:3.10-slim
 
 # set the working dir.
-WORKDIR /app
+WORKDIR ./
 
 # copy the app dir.
-COPY app app
+COPY requirements.txt ./
 
 # install libraries.
+RUN pip install -r requirements.txt
 RUN pip install --no-cache-dir fastapi uvicorn
 
 # expose the port.
