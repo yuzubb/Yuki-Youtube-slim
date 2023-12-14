@@ -9,8 +9,8 @@ ENV PYTHONUNBUFFERED 1
 
 # install the requirements
 COPY requirements.txt /app
-RUN pip3 install -r requirements.txt
-RUN pip install --no-cache-dir fastapi uvicorn
+RUN pip install -r requirements.txt
+RUN pip install fastapi uvicorn
 
 COPY . .
 
