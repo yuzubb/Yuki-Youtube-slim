@@ -1,21 +1,20 @@
-# syntax=docker/dockerfile:1.4
-FROM python:3.10-alpine
+FROM python:3.9.6-alpine
 
+# Set the working directory
 WORKDIR /app
 
-# set environment variables
+# Set environmental variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install the requirements
-COPY requirements.txt /app
-RUN pip install -r requirements.txt
-RUN pip install fastapi uvicorn
+# Copy over the requirements file and install the dependencies
+COPY ./requirements.txt .
+RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 
+# Copy over the source code
 COPY . .
 
-# initialize the database (create DB, tables, populate)
+# Expose the port
+EXPOSE 80
 
-EXPOSE 5000/tcp
-
-CMD ["uvicorn", "--port",  "$PORT", "--host", "0.0.0.0", "main:app"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
