@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>重力</title>
     <link rel="stylesheet" href="style.css">
+     <script>
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/blog')) {
+            const newPath = currentPath.replace('/blog', '');
+            window.location.href = newPath;
+        }
+    </script>
 </head>
 <body>
 
