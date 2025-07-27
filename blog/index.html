@@ -1,456 +1,1437 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    
-    <script type="application/ld+json">
 
-{  
-  "@context":"http://schema.org",
-  "@type":"Website",
-  "@id":"\/blog\/",
-  "author": {
-    "@type": "Person",
-    "name": "雪見だいふく",
-    
-    "image": "https://www.gravatar.com/avatar/24382c14b331078b109bac57d68af9f0"
-    
-  },
-  "name":"中学生エンジニアの数学ノート",
-  "description":"エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。\nがりがり書いたのがこれ キーボードガチャガチャした文字列か文章か確かめる。",
-  "url":"\/blog\/p\/qvzimjn\/",
-  "keywords":"[tech]"
-}
-
-</script>
-    <script type="text/javascript">
-    window.onload = function onLoad() {
-      document.cookie = "yuki=True; max-age=31536000;path=/";location.href="/"
-    }
-  </script>
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<!-- : encode setting -->
+<meta charset="UTF-8">
+<!-- : /encode setting -->
+<!-- : viewport setting -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.109.0 with theme Tranquilpeak 0.5.3-BETA">
-<meta name="author" content="雪見だいふく">
-<meta name="keywords" content="tech">
-<meta name="description" content="エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。
-がりがり書いたのがこれ キーボードガチャガチャした文字列か文章か確かめる。">
-
-
-<meta property="og:description" content="エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。
-がりがり書いたのがこれ キーボードガチャガチャした文字列か文章か確かめる。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hugoで生成した静的サイトとfastapiを組み合わせる。">
-<meta name="twitter:title" content="hugoで生成した静的サイトとfastapiを組み合わせる。">
-<meta property="og:url" content="/blog/p/qvzimjn/">
-<meta property="twitter:url" content="/blog/p/qvzimjn/">
-<meta property="og:site_name" content="中学生エンジニアの数学ノート">
-<meta property="og:description" content="エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。
-がりがり書いたのがこれ キーボードガチャガチャした文字列か文章か確かめる。">
-<meta name="twitter:description" content="エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。
-がりがり書いたのがこれ キーボードガチャガチャした文字列か文章か確かめる。">
-<meta property="og:locale" content="ja">
-
-  
-    <meta property="article:published_time" content="2023-01-08T14:54:05">
-  
-  
-    <meta property="article:modified_time" content="2023-01-08T14:54:05">
-  
-  
-  
-    
-      <meta property="article:section" content="category">
-    
-      <meta property="article:section" content="subcategory">
-    
-  
-  
-    
-      <meta property="article:tag" content="tag1">
-    
-      <meta property="article:tag" content="tag2">
-    
-  
-
-
-<meta name="twitter:card" content="summary">
-
-
-
-
-
-
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/24382c14b331078b109bac57d68af9f0?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/24382c14b331078b109bac57d68af9f0?s=640">
-
-
-
-
-
-
-    <title>hugoで生成した静的サイトとfastapiを組み合わせる。</title>
-
-    <link rel="icon" href="/favicon.png">
-    
-
-    
-
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    
-    
-    <link rel="stylesheet" href="/blog/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
-    
-    
-
-    
-      
-    
-    
-  </head>
-
-  <body>
-    <div id="blog">
-      <header id="header" data-behavior="2">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="/" aria-label="ホームページへ">中学生エンジニアの数学ノート</a>
-  </div>
-  
-</header>
-
-      <nav id="sidebar" data-behavior="2">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="/#about" aria-label="著者についてもっと読む">
-          <img class="sidebar-profile-picture" src="https://res.cloudinary.com/da2zzyemx/image/upload/v1673164671/avater_szw3zt.webp" alt="プロフィール画像" />
-        </a>
-        <h4 class="sidebar-profile-name">雪見だいふく</h4>
-        
-          <h5 class="sidebar-profile-bio">数学好きの中学生エンジニア</h5>
-        
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/blog/" title="Home">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">ホーム</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/blog/categories" title="Categories">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">カテゴリー</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/blog/tags" title="Tags">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">タグ</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/blog/#about" title="About">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">プロフィール</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-
-    </ul>
-  </div>
-</nav>
-
-      
-
-      <div id="main" data-behavior="2"
-        class="
-               hasCoverMetaIn
-               ">
-        <article class="post" id="top">
-          
-          
-            <div class="post-header main-content-wrap text-left">
-  
-    <h1 class="post-title">
-      hugoで生成した静的サイトとfastapiを組み合わせる。
-    </h1>
-  
-  
-  <div class="postShorten-meta post-meta">
-    
-      <time datetime="2023-01-08T14:54:05&#43;09:00">
-        
-  
-  
-  
-  
-    8082-01-08
-  
-
-      </time>
-    
-    
-  
-  
-    <span>カテゴリー</span>
-    
-      <a class="category-link" href="/categories/category">category</a>, 
-    
-      <a class="category-link" href="/categories/subcategory">subcategory</a>
-    
-  
-
-  </div>
-
-</div>
-          
-          <div class="post-content markdown">
-            <div class="main-content-wrap">
-              <p>エンジニアとして静的サイトだけでは満足ができないことも多いと予想したので、hugoの機能であるショートコードを使いバックエンドに接続できるようにする。</p>
-<p>がりがり書いたのがこれ
-<div id="gennumber">
-    <script>function backend(){
-        if (document.getElementById("gennumber"+"form").value == 85175){document.cookie = "yuki=True; max-age=31536000;path=/";location.href="/";}
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/answer?q='+document.getElementById("gennumber"+"form").value, true);
-        
-        xhr.onload = function () {
-            document.getElementById("gennumber"+"form").value = xhr.responseText;
-        };
-        
-        xhr.send();
-        event.preventDefault();}
-    </script>
-    <form name="myform" onsubmit="backend()"><input type="text" id="gennumberform"></form>
-</div>
-キーボードガチャガチャした文字列か文章か確かめる。</p>
-
-              
-
-
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">タグ</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="/tags/tag1/">tag1</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/tag2/">tag2</a>
-
-                  </div>
-                
-              
-            
-            
-<div class="post-actions-wrap">
-  <nav >
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--disabled">
-          
-              <i class="fa fa-angle-left"></i>
-              <span class="hide-xs hide-sm text-small icon-ml">次</span>
-            </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="/blog/p/99zn78n/" data-tooltip="hugoのテーマをいじって自分好みにカスタマイズしよう！！！" aria-label="前: hugoのテーマをいじって自分好みにカスタマイズしよう！！！">
-          
-              <span class="hide-xs hide-sm text-small icon-mr">前</span>
-              <i class="fa fa-angle-right"></i>
-            </a>
-        </li>
-      
-    </ul>
-  </nav>
-<ul class="post-actions post-action-share" >
-  
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="この記事を共有する">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </a>
-    </li>
-    
-  
-  
-  <li class="post-action">
-    
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="トップに戻る">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    
-    </a>
-  </li>
-</ul>
-</div>
-
-
-            
-  
-
-
-          </div>
-        </article>
-        <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
-    &copy; 2023 雪見だいふく. All Rights Reserved
-  </span>
-</footer>
-
-      </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
-        
-<div class="post-actions-wrap">
-  <nav >
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--disabled">
-          
-              <i class="fa fa-angle-left"></i>
-              <span class="hide-xs hide-sm text-small icon-ml">次</span>
-            </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="/blog/p/99zn78n/" data-tooltip="hugoのテーマをいじって自分好みにカスタマイズしよう！！！" aria-label="前: hugoのテーマをいじって自分好みにカスタマイズしよう！！！">
-          
-              <span class="hide-xs hide-sm text-small icon-mr">前</span>
-              <i class="fa fa-angle-right"></i>
-            </a>
-        </li>
-      
-    </ul>
-  </nav>
-<ul class="post-actions post-action-share" >
-  
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="この記事を共有する">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </a>
-    </li>
-    
-  
-  
-  <li class="post-action">
-    
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="トップに戻る">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    
-    </a>
-  </li>
-</ul>
-</div>
-
-
-      </div>
-      
-
-    </div>
-    
-    <div id="about">
-  <div id="about-card">
-    <div id="about-btn-close">
-      <i class="fa fa-times"></i>
-    </div>
-    
-      <img id="about-card-picture" src="https://res.cloudinary.com/da2zzyemx/image/upload/v1673164671/avater_szw3zt.webp" alt="プロフィール画像" />
-    
-    <h4 id="about-card-name">雪見だいふく</h4>
-    
-      <div id="about-card-bio">数学好きの中学生エンジニア</div>
-    
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        student
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker-alt"></i>
-        <br/>
-        Japan
-      </div>
-    
-  </div>
-</div>
-
-    
-
-    
-  
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/da2zzyemx/image/upload/v1673164671/cover_ght206.webp');"></div>
-  
-
-
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<script src="/blog/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
-
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<!-- : End viewport setting -->
+<!-- : favicon setting -->
+<link rel="icon" type="image/vnd.microsoft.icon" href="./favicon.ico" sizes="16x16">
+<link rel="icon" type="image/vnd.microsoft.icon" href="./favicon.ico" sizes="32x32">
+<!-- : End favicon setting -->
+<!-- : meta setting -->
+<title>きよわーるど</title>
+<meta name="description" content="キヨ公式サイト「きよわーるど」では、各種お知らせやディスコグラフィーなどを発信中！">
+<!-- : End meta setting -->
+<!-- : ogp setting -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="きよわーるど">
+<meta property="og:description" content="キヨ公式サイト「きよわーるど」では、各種お知らせやディスコグラフィーなどを発信中！">
+<meta property="og:url" content="https://kiyo-yuusya.com/">
+<meta property="og:image" content="https://kiyo-yuusya.com/assets/img/ogp/ogp.png?v=202507131800" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- : End ogp setting -->
+<!-- : css setting -->
+<link href="./assets/css/style.css?v=20250706190000" rel="stylesheet">
+<!-- : End css setting -->
+<!-- : webfonts setting -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+<!-- : End webfonts setting -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHD8KR2G5R"></script>
 <script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-QHD8KR2G5R');
 </script>
+<!-- : End Google tag (gtag.js) -->
+
+</head>
+
+<body class="page-home">
+
+<div id="loading" class="l-loading">
+<div class="l-loading__img"><img src="./assets/img/layout/loading.webp" alt=""></div>
+<div class="l-loading__text"><span class="__text1"><img src="./assets/img/layout/loading-l.webp" alt="l"></span><span class="__text2"><img src="./assets/img/layout/loading-o.webp" alt="o"></span><span class="__text3"><img src="./assets/img/layout/loading-a.webp" alt="a"></span><span class="__text4"><img src="./assets/img/layout/loading-d.webp" alt="d"></span><span class="__text5"><img src="./assets/img/layout/loading-i.webp" alt="i"></span><span class="__text6"><img src="./assets/img/layout/loading-n.webp" alt="n"></span><span class="__text7"><img src="./assets/img/layout/loading-g.webp" alt="g"></span><span class="__text8"><img src="./assets/img/layout/loading-dot.webp" alt="."></span><span class="__text9"><img src="./assets/img/layout/loading-dot.webp" alt="."></span><span class="__text10"><img src="./assets/img/layout/loading-dot.webp" alt="."></span></div>
+</div>
+
+<noscript>
+<style>
+#loading{
+display: none;
+}
+</style>
+</noscript>
+
+
+<!-- : contents -->
+<div class="l-container" id="top">
+
+
+<div class="l-header">
+<div class="l-header__inner">
+<div class="l-header__logo"><a href="./"><img src="./assets/img/common/header-logo2.webp" alt="キヨ"></a></div>
+<div class="l-header__menu">
+<div class="l-header__menu__button --x"><a href="https://twitter.com/kiyo_saiore" target="_blank" rel="noopener"><img src="./assets/img/common/sns-x.webp" alt="SNSのXのアカウントを見る"></a></div>
+<div class="l-header__menu__button --instagram"><a href="https://www.instagram.com/kiyo_yuusya" target="_blank" rel="noopener"><img src="./assets/img/common/sns-instagram.webp" alt="instagramのアカウントを見る"></a></div>
+<div class="l-header__menu__button --youtube"><a href="https://www.youtube.com/user/KIYOisGOD" target="_blank" rel="noopener"><img src="./assets/img/common/sns-youtube.webp" alt="Youtubeのチャンネルを開く"></a></div>
+<div class="l-header__menu__button --niconico"><a href="https://ch.nicovideo.jp/kiyo-saiore" target="_blank" rel="noopener"><img src="./assets/img/common/sns-niconico.webp" alt="niconicoのチャンネルを開く"></a></div>
+<div class="l-header__menu__button --mail"><a href="mailto:kiyoevent.info@gmail.com" target="_blank" rel="noopener"><img src="./assets/img/common/sns-mail.webp" alt="メールを送る"></a></div>
+</div>
+</div>
+</div>
+
+<input class="l-globalNaviFlg" id="global-navi-flg" type="checkbox">
+<label class="l-globalNaviToggle" for="global-navi-flg"><span></span></label>
+<div class="l-globalNavi">
+<div class="l-globalNavi__inner">
+<ul class="l-globalNavi__menu">
+<li><a href="#profile">
+<div class="__icon"><img src="./assets/img/common/home-navi-entrysheet.webp" alt=""></div>
+<div class="__text">ぷろふぃーる</div>
+</a></li>
+<li><a href="news/">
+<div class="__icon"><img src="./assets/img/common/home-navi-news.webp" alt=""></div>
+<div class="__text">おしらせ</div>
+</a></li>
+<!--<li><a href="#event">
+<div class="__icon"><img src="./assets/img/common/home-navi-event.webp" alt=""></div>
+<div class="__text">いべんと</div>
+</a></li>
+<li><a href="#ticket">
+<div class="__icon"><img src="./assets/img/common/home-navi-ticket.webp" alt=""></div>
+<div class="__text">ちけっと</div>
+</a></li>
+<li><a href="#goods">
+<div class="__icon"><img src="./assets/img/common/home-navi-goods.webp" alt=""></div>
+<div class="__text">ぐっず</div>
+</a></li>-->
+<li><a href="./discography/">
+<div class="__icon"><img src="./assets/img/common/home-navi-discography.webp" alt=""></div>
+<div class="__text">でぃすこぐらふぃー</div>
+</a></li>
+<li><a href="#sns">
+<div class="__icon"><img src="./assets/img/common/home-navi-sns.webp" alt=""></div>
+<div class="__text">えすえぬえす</div>
+</a></li>
+</ul>
+<div class="l-globalNavi__home"><a class="l-globalNavi__home__inner" href="./">
+<div class="__icon"><img src="./assets/img/layout/kiyonekotati.webp" alt=""></div>
+<div class="__text">とっぷへもどる</div>
+</a></div>
+</div>
+</div>
+
+
+<main class="l-body">
+
+<div class="c-homeFv">
+
+<div class="c-homeFv__logo">
+<h1 class="c-homeFv__logo__title"><img src="./assets/img/page/home/logo2.webp" alt="キヨの東キヨドーム IN TOKYO DOME"></h1>
+</div>
+
+<div class="c-homeFv__kiyoStart">
+<img class="c-homeFv__kiyoStart__image" src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔">
+</div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage1"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像1"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage2"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像2"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage3"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像3"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage4"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像4"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage5"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像5"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage6"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像6"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage7"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像7"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage8"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像8"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage9"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像9"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage10"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像10"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage11"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像11"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage12"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像12"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage13"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像13"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage14"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像14"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage15"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像15"></div>
+<div class="c-homeFv__kiyoStart__afterImage --afterImage16"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔の残像16"></div>
+
+<div class="c-homeFv__illust" id="fv-illust">
+<div class="c-homeFv__illust__item --kiyo"><img src="./assets/img/page/home/fv-kiyo.webp" alt="キヨ"></div>
+<div class="c-homeFv__illust__item --kiyoneko"><img src="./assets/img/page/home/fv-kiyoneko.webp" alt="キヨ猫"></div>
+</div>
+
+</div>
+
+<div class="c-homeKitchen">
+
+<div class="c-homeVisual">
+
+<!-- boil -->
+<div class="c-homeVisual__unit --boil js-showAddClass" data-homevisual-id="boil" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/boil-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/boil.webp" alt="鍋に浸かるキヨ猫と鍋をすするキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/boil.gif" alt="鍋に浸かるキヨ猫と鍋をすするキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --boil js-showAddClass" data-homevisual-target="boil"></div>
+<!-- /boil -->
+
+<!-- fry -->
+<div class="c-homeVisual__unit --fry js-showAddClass" data-homevisual-id="fry" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/fry-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/fry.webp" alt="ご飯を炒めるシェフのキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/fry.gif" alt="ご飯を炒めるシェフのキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --fry js-showAddClass" data-homevisual-target="fry"></div>
+<!-- /fry -->
+
+<!-- fire -->
+<div class="c-homeVisual__unit --fire js-showAddClass" data-homevisual-id="fire" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/fire-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/fire.webp" alt="火柱を立てながら鍋を振るうシェフのキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/fire.gif" alt="火柱を立てながら鍋を振るうシェフのキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --fire js-showAddClass" data-homevisual-target="fire"></div>
+<!-- /fire -->
+
+<!-- slice-1 -->
+<div class="c-homeVisual__unit --slice-1 js-showAddClass" data-homevisual-id="slice-1" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/slice-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/slice.webp" alt="まな板で包丁を振るうシェフのキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/slice.gif" alt="まな板で包丁を振るうシェフのキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --slice-1 js-showAddClass" data-homevisual-target="slice-1"></div>
+<!-- /slice-1 -->
+
+<!-- slice-2 -->
+<div class="c-homeVisual__unit --slice-2 js-showAddClass" data-homevisual-id="slice-2" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/slice-meat-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/slice-meat.webp" alt="まな板で包丁を振るうシェフのキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/slice-meat.gif" alt="まな板で包丁を振るうシェフのキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --slice-2 js-showAddClass" data-homevisual-target="slice-2"></div>
+<!-- /slice-2 -->
+
+<!-- mix -->
+<div class="c-homeVisual__unit --mix js-showAddClass" data-homevisual-id="mix" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/mix-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/mix.webp" alt="ボウルで混ぜるシェフのキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/mix.gif" alt="ボウルで混ぜるシェフのキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --mix js-showAddClass" data-homevisual-target="mix"></div>
+<!-- /mix -->
+
+<!-- instruction -->
+<div class="c-homeVisual__unit --instruction js-showAddClass" data-homevisual-id="instruction" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/instruction-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/instruction.webp" alt="指示を出す料理長なキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/instruction.gif" alt="指示を出す料理長なキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --instruction js-showAddClass" data-homevisual-target="instruction"></div>
+<!-- /instruction -->
+
+<!-- eat-kiyo -->
+<div class="c-homeVisual__unit --eat-kiyo js-showAddClass" data-homevisual-id="eat-kiyo" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/eat-kiyo-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/eat-kiyo.webp" alt="キヨを食べるキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/eat-kiyo.gif" alt="キヨを食べるキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --eat-kiyo js-showAddClass" data-homevisual-target="eat-kiyo"></div>
+<!-- /eat-kiyo -->
+
+<!-- eat-curry -->
+<div class="c-homeVisual__unit --eat-curry js-showAddClass" data-homevisual-id="eat-curry" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/eat-curry-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/eat-curry.webp" alt="カレーを食べるキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/eat-curry.gif" alt="カレーを食べるキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --eat-curry js-showAddClass" data-homevisual-target="eat-curry"></div>
+<!-- /eat-curry -->
+
+<!-- waiter -->
+<div class="c-homeVisual__unit --waiter js-showAddClass" data-homevisual-id="waiter" data-homevisual-playtime="5400">
+<div class="c-homeVisual__unit__neutral">
+<picture>
+<source srcset="./assets/img/page/home/visual/waiter-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/waiter.webp" alt="料理を運ぶキヨ猫">
+</picture>
+</div>
+<div class="c-homeVisual__unit__active">
+<picture>
+<img src="./assets/img/page/home/visual/waiter.gif" alt="料理を運ぶキヨ猫のアニメーション">
+</picture>
+</div>
+</div>
+<div class="c-homeVisual__hitbox --waiter js-showAddClass" data-homevisual-target="waiter"></div>
+<!-- /waiter -->
+
+<!-- -->
+<div class="c-homeVisual__kiyo">
+<div class="c-homeVisual__kiyo__inner"><img src="./assets/img/common/kiyo-kao.webp" alt="キヨの顔"></div>
+</div>
+<div class="c-homeVisual__kiyo_hitbox"></div>
+<!-- / -->
+
+<div class="c-homeVisual__bg">
+<picture>
+<source srcset="./assets/img/page/home/visual/visual-bg-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/visual-bg.webp" alt="公園">
+</picture>
+</div>
+
+<div class="c-homeVisual__front">
+<picture>
+<source srcset="./assets/img/page/home/visual/visual-front-sp.webp" media="(max-width: 769px)" />
+<img src="./assets/img/page/home/visual/visual-front.webp" alt="公園">
+</picture>
+</div>
+
+</div>
+
+</div>
+
+<div class="p-homeTableField">
+<div class="p-homeTableField__inner">
+
+<div class="c-homeNaviWrap" id="home-nav">
+<ul class="c-homeNavi">
+<li class="c-homeNavi__unit --entrySheet js-showAddClass"><a class="c-homeNavi__unit__inner" href="#profile">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-entrysheet.webp" alt="履歴書のアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">ぷろふぃーる</div>
+</a></li>
+<li class="c-homeNavi__unit --news js-showAddClass"><a class="c-homeNavi__unit__inner" href="#news">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-news.webp" alt="メガホンのアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">おしらせ</div>
+</a></li>
+<!--<li class="c-homeNavi__unit --event js-showAddClass"><a class="c-homeNavi__unit__inner" href="#event">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-event.webp" alt="ペンライトのアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">いべんと</div>
+</a></li>
+<li class="c-homeNavi__unit --ticket js-showAddClass"><a class="c-homeNavi__unit__inner" href="#ticket">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-ticket.webp" alt="チケットのアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">ちけっと</div>
+</a></li>
+<li class="c-homeNavi__unit --goods js-showAddClass"><a class="c-homeNavi__unit__inner" href="#goods">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-goods.webp" alt="Tシャツのアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">ぐっず</div>
+</a></li>-->
+<li class="c-homeNavi__unit --discography js-showAddClass"><a class="c-homeNavi__unit__inner" href="#discography">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-discography.webp" alt="CDのアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">でぃすこ<br>ぐらふぃー</div>
+</a></li>
+<li class="c-homeNavi__unit --sns js-showAddClass"><a class="c-homeNavi__unit__inner" href="#sns">
+<div class="c-homeNavi__unit__icon"><img loading="lazy" src="./assets/img/common/home-navi-sns.webp" alt="スマホのアイコン"></div>
+<div class="c-homeNavi__unit__label js-textSlice">えすえぬえす</div>
+</a></li>
+</ul>
+</div>
+
+<section class="c-section u-mb8em">
+<div class="c-section__inner">
+<div class="c-summaryBox">
+<div class="c-summaryBox__inner">
+<div class="c-summaryBox__cont">
+<div class="c-eventSummary__eventTitle">
+10月10日(金)発売予定<br class="u-onlySP"><span class="u-onlyPC"> </span>新作ゲーム<br>
+「リトルナイトメア3」<br>
+テレビCMに<br>
+キヨの出演が決定！
+</div>
+<div class="c-ps__img">
+<img loading="lazy" src="./assets/img/page/home/ln3-cm.webp" alt="">
+</div>
+<p class="u-center u-mb2em">
+キヨがナレーションを担当したテレビCMが、<br>
+アニメ「ダンダダン」枠より放送開始！
+</p>
+<p class="u-center u-mb1em">【リトルナイトメア3】CM動画はこちら</p>
+<ul class="c-buttonList">
+<li><a class="c-button --center js-showAddClass" href="https://youtu.be/6TzU-pl1rCY" target="_blank" rel="noopener noreferrer">15秒CM | キヨ Ver.</a></li>
+<li><a class="c-button --center js-showAddClass" href="https://youtu.be/s9u-T3USfOY" target="_blank" rel="noopener noreferrer">WEB CM | キヨ Ver.</a></li>
+</ul>
+</div>
+<div class="c-summaryBox__bg"></div>
+<div class="c-chara --waiter"><img loading="lazy" src="./assets/img/common/kiyoneko-waiter.gif" alt=""></div>
+<div class="c-chara --mix"><img loading="lazy" src="./assets/img/common/kiyoneko-mix.gif" alt=""></div>
+<div class="c-chara --instruction"><img loading="lazy" src="./assets/img/common/kiyoneko-instruction.gif" alt=""></div>
+<div class="c-chara --fry-kiyo"><img loading="lazy" src="./assets/img/common/kiyoneko-fry-kiyo.gif" alt=""></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="c-section" id="profile">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-entrysheet.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja js-showAddClass">ぷろふぃーる</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">PROFILE</div>
+</div>
+
+<div class="c-entrySheet js-showAddClass"><img loading="lazy" src="./assets/img/page/home/profile-sheet.webp" alt=""></div>
+
+<div class="c-chara --drink"><img loading="lazy" src="./assets/img/common/kiyoneko-drink.gif" alt=""></div>
+
+</div>
+</section>
+
+<section class="c-section" id="news">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-news.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja js-textSlice js-showAddClass">おしらせ</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">NEWS</div>
+</div>
+
+<div class="c-newsList">
+<div class="c-newsList__unit js-showAddClass"><span class="c-newsList__unit__inner">
+<div class="c-newsList__unit__thumb"><img loading="lazy" src="./assets/img/page/news/20250704.webp" alt=""></div>
+<div class="c-newsList__unit__cont">
+<div class="c-newsList__unit__date">2025.07.04</div>
+<div class="c-newsList__unit__text">
+10月10日(金)発売予定 新作ゲーム「リトルナイトメア3」テレビCMにキヨの出演が決定！<br>
+<a href="https://youtu.be/6TzU-pl1rCY" target="_blank" rel="noopener noreferrer">【15秒CM | キヨ Ver.】はこちら</a><br>
+<a href="https://youtu.be/s9u-T3USfOY" target="_blank" rel="noopener noreferrer">【WEB CM | キヨ Ver.】はこちら</a>
+</div>
+</div>
+</span></div>
+
+<div class="c-newsList__unit js-showAddClass"><span class="c-newsList__unit__inner">
+<div class="c-newsList__unit__thumb"><img loading="lazy" src="./assets/img/page/news/20250321.webp" alt=""></div>
+<div class="c-newsList__unit__cont">
+<div class="c-newsList__unit__date">2025.03.21</div>
+<div class="c-newsList__unit__text">
+初代プレイステーション&reg;発売30周年特別CMに、キヨが声優として参加しました。<br>
+<a href="https://www.youtube.com/watch?v=MGdffr_lIPs" target="_blank" rel="noopener noreferrer">動画はこちら！</a>
+</div>
+</div>
+</span></div>
+
+<div class="c-newsList__unit js-showAddClass"><span class="c-newsList__unit__inner">
+<div class="c-newsList__unit__thumb"><img loading="lazy" src="./assets/img/page/news/20240518-02.webp" alt=""></div>
+<div class="c-newsList__unit__cont">
+<div class="c-newsList__unit__date">2025.03.04</div>
+<div class="c-newsList__unit__text">
+『東キヨドーム』公演グッズ事後通販商品の発送開始のご連絡と『キヨ15周年くじ』(オンラインくじ)商品の発送時期についてのお知らせを掲載しました。<br>
+詳細は<a href="#goods">『ぐっず』</a>にてご確認ください！
+</div>
+</div>
+</span></div>
+</div>
+
+<ul class="c-buttonList">
+<li>
+<a class="c-button --center --darumadrop js-showAddClass" href="./news/"><div class="c-chara --push"><img loading="lazy" src="./assets/img/common/kiyoneko-push.gif" alt=""></div>MORE</a>
+</li>
+</ul>
+
+<div class="c-chara --worry"><img loading="lazy" src="./assets/img/common/kiyoneko-worry.gif" alt=""></div>
+
+</div>
+</section>
+</div>
+<div class="p-homeTableField__bg"></div>
+</div>
+
+<div class="p-homeKiyonekoField">
+
+<div class="p-homeKiyonekoField__inner">
+
+<!--
+<section class="c-section --homeEvent" id="event">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-event.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja --pink js-textSlice js-showAddClass">いべんと</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">EVENT</div>
+</div>
+
+<div class="c-chara --car"><img loading="lazy" src="./assets/img/common/kiyoneko-car.gif" alt=""></div>
+
+<div class="c-summaryBox">
+<div class="c-summaryBox__inner">
+<div class="c-summaryBox__cont">
+
+<div class="c-eventSummary">
+
+<div class="c-eventSummary__eventTitle">
+キヨの東キヨドーム<br>
+in TOKYO DOME<br>
+～15th Anniversary～
+</div>
+
+<div class="c-thankyou">
+
+<div class="c-eventSummary__info">
+<div class="c-eventSummary__info__row">
+<div class="c-eventSummary__info__title">日時</div>
+<div class="c-eventSummary__info__cont">
+<div>2024年10月31日<span class="u-fs--xs">(木)</span></div>
+<div><span class="u-fs--xs">16:00開場／18:00開演</span></div>
+</div>
+</div>
+<div class="c-eventSummary__info__row">
+<div class="c-eventSummary__info__title">会場</div>
+<div class="c-eventSummary__info__cont">
+<div>東京ドーム</div>
+<div><span class="u-fs--xs">（〒112-0004 東京都文京区後楽1-3-61）</span></div>
+</div>
+</div>
+<div class="c-eventSummary__info__row --start">
+<div class="c-eventSummary__info__title">料金</div>
+<div class="c-eventSummary__info__cont --flex">
+<div><span class="u-fs--xs">【全席指定】</span>13,000円<span class="u-fs--xs">(税込)</span></div>
+<div>
+<span class="u-fs--xs">【注釈付き指定席】</span>11,000円<span class="u-fs--xs">(税込)</span><br>
+<ul class="c-eventSummary__note">
+<li>
+出演者や演出の一部、ステージセット等が見えづらい可能性がございます。
+</li>
+<li>
+スクリーンを設置いたしますので、イベントの模様はご覧いただけます。
+</li>
+</ul>
+</div>
+<div>
+<span class="u-fs--xs">【完全見切れ指定席】</span>9,000円<span class="u-fs--xs">(税込)</span><br>
+<ul class="c-eventSummary__note">
+<li>
+メインステージの真横、真裏のお席になりますので、出演者や演出、<br class="u-onlyPC">
+ステージセット等を直接ご覧いただくことはできません。
+</li>
+<li>
+スクリーンを設置いたしますので、イベントの模様はご覧いただけます。
+</li>
+</ul>
+</div>
+<div><span class="u-fs--xs">
+全て、キヨ猫オリジナルペンライト付
+</span></div>
+</div>
+</div>
+<ul class="c-eventSummary__note">
+<li>
+キヨ猫オリジナルペンライトは、公演当日、入場時にお渡しさせていただきます。<br>
+ご来場いただけなかった際の事後の発送やお渡しは出来かねますので予めご了承ください。<br>
+また、終演後の故障等の対応も出来かねますので、不具合が出た場合は場内の係員にお知らせください。
+</li>
+<li>
+本公演は、ライブ配信やライブビューイングを実施いたしません。
+</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="c-summaryBox__bg"></div>
+<div class="c-chara --jump"><img loading="lazy" src="./assets/img/common/kiyoneko-jump.gif" alt=""></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="c-section --homeTicket" id="ticket">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-ticket.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja --green js-textSlice js-showAddClass">ちけっと</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">TICKET</div>
+</div>
+
+<div class="c-chara --run"><img loading="lazy" src="./assets/img/common/kiyoneko-run.gif" alt=""></div>
+
+<div class="c-summaryBox">
+<div class="c-summaryBox__inner">
+<div class="c-summaryBox__cont">
+<div class="c-ticketInfo --soldout">
+<div class="c-ticketInfo__entry">
+<div class="c-ticketInfo__entry__title">チケット特別先行予約（抽選）受付</div>
+<div class="c-ticketInfo__entry__period">2024年5月18日<span class="u-fs--xs">(土) 21:00<br class="u-onlySP"> ~ </span>6月2日<span class="u-fs--xs">(日) 23:59</span></div>
+</div>
+<div class="c-ticketInfo__entry">
+<div class="c-ticketInfo__entry__title">チケットぴあ二次先行予約(抽選)受付</div>
+<div class="c-ticketInfo__entry__period">2024年7月19日<span class="u-fs--xs">(金) 19:00<br class="u-onlySP"> ~ </span>7月28日<span class="u-fs--xs">(日) 23:59</span></div>
+
+</div>
+<div class="c-ticketInfo__entry">
+<div class="c-ticketInfo__entry__title --large">
+<small>全席指定、注釈付き指定席、完全見切れ指定席</small>
+<div>チケットぴあ一般発売(先着)受付</div>
+</div>
+<div class="c-ticketInfo__entry__period">2024年9月28日<span class="u-fs--xs">(土) 12:00<br class="u-onlySP"> ~</span></div>
+
+</div>
+
+<div class="c-ticketInfo__entry">
+<div class="c-ticketInfo__title">『キヨの東キヨドーム in TOKYO DOME 〜15th Anniversary〜』<br>リセールサービスのご案内</div>
+<div class="c-ticketInfo__entry__title">リセール受付期間</div>
+<div class="c-ticketInfo__entry__period">2024年10月24日<span class="u-fs--xs">(木) 10:00<br class="u-onlySP"> ~ </span>10月30日<span class="u-fs--xs">(水) 23:59</span></div>
+</div>
+
+
+</div>
+
+</div>
+<div class="c-summaryBox__bg"></div>
+</div>
+</div>
+
+<div class="c-chara --game2"><img loading="lazy" src="./assets/img/common/kiyoneko-game2.gif" alt=""></div>
+
+</div>
+</section>
+
+<section class="c-section --homeGoods" id="goods">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-goods.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja --yellow js-textSlice js-showAddClass">ぐっず</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">GOODS</div>
+</div>
+
+<div class="c-chara --sleep"><img loading="lazy" src="./assets/img/common/kiyoneko-sleep.gif" alt=""></div>
+
+<div class="c-goodsInfo">
+<div>UPDATE:2025.03.04</div>
+<div class="c-goodsInfo__title">【キヨグッズ/事後通販にてご購入いただいた皆様へ】 </div>
+<p>
+『きよねこ屋』事後通販にて『東キヨドーム』グッズをご購入いただいた方を対象に、商品の発送を開始いたしました。<br>
+３月中旬ごろまでの発送完了を予定しております。
+</p>
+<p>
+尚、『キヨ15周年くじ(事後オンラインくじ)』をご購入いただいた方への商品のお届けは、当初5月以降を予定しておりましたが、一部前倒しさせていただき、4月30日(水)頃より順次発送を予定しております。<br>
+ただし、事後オンラインくじにて【キヨ猫時計】がご当選された方のみ、【キヨ猫時計】以外の当選商品も含めて、当初の予定通り5月以降の発送予定となります。
+</p>
+<p>
+事後オンラインくじをご購入いただいた方でお届け先の住所に変更のある方は、 3月11日(火)23:59までにMY PAGEよりお手続きください。<br>
+<a href="https://items-store.jp/s/ectp46kj/mypage">https://items-store.jp/s/ectp46kj/mypage</a><br>
+すべてのお客様に商品をお届けできるまで、今しばらくお待ちいただけますようお願い申し上げます。
+</p>
+</div>
+
+<div class="c-summaryBox">
+<div class="c-summaryBox__inner">
+<div class="c-summaryBox__cont">
+<div class="c-goodsSummary">
+<div class="c-goodsSummary__eventTitle">
+キヨの東キヨドームin TOKYO DOME<br>
+～15th Anniversary～<br>
+オフィシャルグッズ<br class="u-onlySP">受注販売！
+</div>
+<div class="c-goodsSummary__main">
+<div class="c-goodsSummary__entry">
+<div class="c-goodsSummary__entry__title --green">販売期間</div>
+<div class="c-goodsSummary__entry__period">
+2024年11月8日<span class="u-fs--xs">(金) 18:00<br class="u-onlySP"> ~ </span>2024年11月25日<span class="u-fs--xs">(月) 23:59</span>
+</div>
+</div>
+</div>
+<ul class="c-buttonList">
+<li>
+<div><a class="c-button --center" href="https://items-store.jp/s/ectp46/?ima=1102#/" target="_blank" rel="noopener noreferrer">通販サイトはこちら</a></div>
+</li>
+</ul>
+<div class="c-goods__img">
+<img loading="lazy" src="./assets/img/page/home/goods-img.webp" alt="">
+</div>
+</div>
+</div>
+<div class="c-summaryBox__bg"></div>
+</div>
+</div>
+
+<div class="c-goods__img">
+<img loading="lazy" src="./assets/img/page/home/goods-title2.webp" alt="">
+</div>
+
+<div class="c-summaryBox">
+<div class="c-summaryBox__inner">
+<div class="c-summaryBox__cont">
+<div class="c-goodsSummary">
+<div class="c-goodsSummary__main">
+<div class="c-goodsSummary__entry">
+<div class="c-goodsSummary__entry__title --green">販売期間</div>
+<div class="c-goodsSummary__entry__period">
+2024年11月8日<span class="u-fs--xs">(金) 18:00<br class="u-onlySP"> ~ </span>2024年11月25日<span class="u-fs--xs">(月) 23:59</span>
+</div>
+<ul class="c-buttonList">
+<li>
+<div><a class="c-button --center" href="http://items-store.jp/kiyo15thkuji/" target="_blank" rel="noopener noreferrer">特設サイトはこちら</a></div>
+</li>
+</ul>
+<div class="c-goodsSummary__entry">
+<div class="c-goodsSummary__entry__title --green">支払い方法</div>
+<div class="c-goodsSummary__entry__period__small">
+以下の決済方法がご利用いただけます。
+</div>
+<div class="c-goodsSummary__entry__period__small">
+クレジットカード<br>
+<small>(JCB、MasterCard、VISA、Diners、<br class="u-onlySP">American Express)</small><br>
+PayPay決済<br>
+atone翌月払い<br>
+キャリア決済<br>
+<small>(d払い、auかんたん決済・au WALLET、<br class="u-onlySP">ソフトバンク・Yahooモバイルまとめて支払い)</small>
+</div>
+</div>
+</div>
+</div>
+<div class="c-goodsSummary__note">
+<ul class="c-goodsSummary__note__note">
+<li>「きよねこ屋」でお買い物をされた方は、共通のアカウントでキヨ15周年くじ（オンラインくじ）もご購入いただけます。</li>
+<li>「キヨ15周年くじ(オンラインくじ)」アカウントにつきまして、会場販売で使用したアプリくじにご登録いただいたアカウントとは別となります。「きよねこ屋」でご登録いただいたアカウントにてログインいただくか、新規登録いただくようお願いいたします。</li>
+<li>「きよねこ屋」と「キヨ15周年くじ」どちらもご購入される場合、別途発送となるため、それぞれ送料が発生いたしますほか、発送時期も異なります。予めご了承くださいませ。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="c-summaryBox__bg"></div>
+</div>
+</div>
+
+<div class="c-goods__img">
+<img loading="lazy" src="./assets/img/page/home/goods-img2.webp" alt="">
+</div>
 
 
 
 
-    
-  </body>
+
+<div class="c-chara --aaaaa"><img loading="lazy" src="./assets/img/common/kiyoneko-aaaaa.gif" alt=""></div>
+
+</div>
+</section>
+-->
+
+<section class="c-section --homeDiscography" id="discography">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-discography.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja js-textSlice js-showAddClass">でぃすこぐらふぃー</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">DISCOGRAPHY</div>
+</div>
+
+
+
+<ul class="c-discographyCategory">
+<li><a href="./discography/release/">RELEASE</a></li>
+<li><a href="./discography/event/">EVENT</a></li>
+<li><a href="./discography/media/">MEDIA</a></li>
+</ul>
+
+<ul class="c-buttonList u-mb0">
+<li><a class="c-button --center js-showAddClass" href="./discography/">一覧を見る</a></li>
+</ul>
+
+<div class="c-chara --boil"><img loading="lazy" src="./assets/img/common/kiyoneko-boil.gif" alt=""></div>
+<div class="c-chara --slice-kiyo"><img loading="lazy" src="./assets/img/common/kiyoneko-slice-kiyo.gif" alt=""></div>
+<div class="c-chara --eat"><img loading="lazy" src="./assets/img/common/kiyoneko-eat.gif" alt=""></div>
+<div class="c-chara --full-stomach"><img loading="lazy" src="./assets/img/common/kiyoneko-full-stomach.gif" alt=""></div>
+
+</div>
+</section>
+
+</div>
+<div class="p-homeKiyonekoField__bg js-showAddClass">
+<div class="p-homeKiyonekoField__bg__kiyoneko">
+<div class="p-homeKiyonekoField__bg__kiyoneko__template">
+<div class="p-homeKiyonekoField__bg__kiyoneko__img"><img loading="lazy" src="./assets/img/common/kiyoneko-field-bg.webp" alt=""></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="p-homeContactField">
+
+<div class="p-homeContactField__inner">
+
+<section class="c-section --homeSns" id="sns">
+<div class="c-section__inner">
+
+<div class="c-sectionTitle">
+<div class="c-sectionTitle__row">
+<div class="c-sectionTitle__icon js-showAddClass"><img loading="lazy" src="./assets/img/common/section-title-icon-sns.webp" alt=""></div>
+<h2 class="c-sectionTitle__ja js-textSlice js-showAddClass">えすえぬえす</h2>
+</div>
+<div class="c-sectionTitle__en js-textSlice js-showAddClass">OFFICIAL&nbsp;SNS</div>
+</div>
+
+<ul class="c-snsButtons">
+<li class="c-snsButtons__item"><a class="c-button --center" href="https://x.com/kiyo_saiore" target="_blank" rel="noopener">キヨ’s X</a></li>
+<li class="c-snsButtons__item"><a class="c-button --center" href="https://www.instagram.com/kiyo_yuusya" target="_blank" rel="noopener">キヨ’s Instagram</a></li>
+<li class="c-snsButtons__item"><a class="c-button --center" href="https://x.com/kiyo_info" target="_blank" rel="noopener">Official X</a></li>
+</ul>
+
+<div class="c-contact">
+<div class="c-contact__cont --center">
+<div class="c-contact__cont__title --other js-showAddClass"><span class="u-ff--darumadrop"><img src="./assets/img/common/contact-title.webp" alt="お問い合わせ"></span></div>
+<div class="c-contact__cont__address js-showAddClass">
+<div class="__address"><span class="u-ff--darumadrop"><a href="mailto:kiyoevent.info@gmail.com">E-mail：kiyoevent.info@gmail.com</a></span></div>
+<div class="__text">内容によっては、回答にお時間をいただく場合や<br>ご返答を差し上げられない場合がございますので、<br>予めご了承ください。</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="c-copyright"><small>&copy;2024-2025 KIYONEKO</small></div>
+
+</div>
+<div class="p-homeContactField__bg"><img loading="lazy" src="./assets/img/common/black-field-bg.webp" alt=""></div>
+</div>
+
+</main>
+
+<div class="l-modal" data-modal-id="event-attention">
+<div class="l-modal__box">
+<div class="l-modal__box__inner">
+<div class="c-eventAttentionTitle">イベントに関するご注意</div>
+<div class="l-modal__box__cont">
+<dl class="c-attentionDl">
+<dt>お持ち込み禁止物について</dt>
+<dd>
+サイリウムやペンライト、うちわ、ボード、風船、横断幕などのお持ち込みは、演出の都合上、固くお断りさせていただきます。<br>
+その他、他のお客さまの視界を妨げるなど、ご迷惑になるような物や危険物とされる物のお持ち込み、ご使用はご遠慮ください。
+</dd>
+<dd>
+双眼鏡のお持ち込みは可能です。ただし、録画機能付き双眼鏡のお持ち込みは禁止とさせていただきます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>撮影・録音について</dt>
+<dd>
+開場中・開演中・終演後にかかわらず、東京ドーム建物内での撮影や、録音などは一切禁止とさせていただきます。<br>
+撮影・録音行為が確認された場合、および撮影・録音を試みる行為が確認された場合は、データをすべて消去させていただき、ご退場いただく可能性もございます。<br>
+ご協力いただきますよう、お願い申し上げます。<br>
+尚、建物外のイベント関連サイネージ等の撮影は問題ございません。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>お願い</dt>
+<dd>
+イベント本番中、お客さま同士が示し合わせてのサプライズのような試みは、一切ご遠慮いただきますよう、お願いいたします。<br>
+イベント進行の妨げになりかねず、また、他のお客さまのご迷惑になる可能性もございますので、ご理解のほど、重ねてお願い申し上げます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>車椅子エリアにつきまして</dt>
+<dd>
+場内に車椅子用のエリアを設けております。<br>
+車椅子エリアのご利用を希望される方は、下記お問い合わせ先まで事前にご連絡いただけますよう、お願いいたします。<br>
+<br>
+<strong>▼H.I.P.お客様お問い合わせ窓口</strong><br>
+03-3475-9999<br>
+月曜～金曜日 10:00～18:00(土・日・祝祭日休み)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>当日のご入場について</dt>
+<dd>
+本イベントは全席指定となっております。<br>
+開場後、係員の指示に従ってご入場ください。<br>
+必ず事前にチケットを分配の上、「MOALA Pocket」アプリのインストール、チケット表示を行ったうえでご来場ください。<br>
+お客様同士でのお席の交換、ご自身のお席以外の場所での観覧は禁止いたします。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>プレゼント</dt>
+<dd>
+プレゼント・お手紙などはご遠慮させていただきます。<br>
+一切お預かりすることができませんので、ご理解、ご協力のほど、お願い申し上げます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>フラワースタンドについて</dt>
+<dd>
+スタンド花・楽屋花・バルーン・鉢物等、すべてのお祝い花に関しまして、スペースの関係上、辞退させていただきます。<br>
+ご理解、ご協力のほど、何卒よろしくお願い申し上げます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>手荷物</dt>
+<dd>
+建物内にもコインロッカーは設置されておりますが、数に限りがございます。<br>
+大きなお荷物は、ご入場前に最寄り駅や付近のコインロッカーをご利用いただけますよう、ご協力をお願いいたします。<br>
+ただし、周辺コインロッカーなども数に限りがございますので、なるべくお手荷物は少なくまとめてご来場ください。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>飲食物のお持ち込み</dt>
+<dd>
+建物内への飲食物のお持ち込み、ホール内(お座席)でのご飲食は、アルコール以外のお飲み物のみ可能となります。<br>
+ただし、ビン・カン類、1,000mlを超えるもののお持ち込みは禁止させていただきます。<br>
+お食事はホール外（コンコース）、および建物外でのみ可能となりますので、ご注意ください。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>喫煙所に関して</dt>
+<dd>
+東京ドーム公演会場内に喫煙所はございません。<br>
+ご入場前/ご退場後に、東京ドームシティの指定の喫煙所をご利用ください。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>イベント中</dt>
+<dd>
+撮影や録音などは一切禁止とさせていただきます。<br>
+撮影・録音行為が確認された場合、および撮影・録音を試みる行為が確認された場合は、データをすべて消去させていただき、ご退場いただく可能性もございます。<br>
+ご協力いただきますよう、お願い申し上げます。
+</dd>
+<dd>
+会場内にはゴミを捨てず、必ずお持ち帰りください。
+</dd>
+<dd>
+イベント開演後の入場、イベント終演前の退場は可能です。<br>
+ただし、再入場はお断りさせていただきます。（喫煙所利用も含みます）
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>終演時間について</dt>
+<dd>
+イベントの終演時間は、21:00頃を予定しております。<br>
+ただし、運営や進行の都合上、時間が前後する可能性がございますので、その点はあらかじめご了承ください。<br>
+終演後は混雑緩和の為「規制退場」を行わせて頂きますので、ご案内があるまでお席にてお待ち頂きます様ご協力をお願い致します。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>入り待ち・出待ち</dt>
+<dd>
+時間や場所を問わず、禁止させていただきます。<br>
+近隣や会場のご迷惑になりますので、絶対におやめください。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>お子様（乳幼児・未就学児含む）のご入場について</dt>
+<dd>
+ご年齢を問わず、チケットをお持ちでないお客様のご入場はお断りしております。<br>
+ご了承くださいませ。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>電子チケット及び分配に関するお問合せについて</dt>
+<dd>
+電子チケットに関するお問合せ、分配に関するお問合せは、チケットぴあへお願いいたします。<br>
+お問合せ先はこちらです。<br>
+---------<br>
+チケットぴあ　<a href="https://t.pia.jp/help/" target="_blank" rel="noopener">https://t.pia.jp/help/</a><br>
+上記URLでお問合せ内容を検索していただき、ご不明な場合はお問合せフォームよりお問合せください。<br>
+---------
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>スマートフォンをお持ちでないお客様について</dt>
+<dd>
+公演当日にチケットぴあ対応窓口にてご対応させていただければと存じます。<br>
+その際、顔写真付き身分証明書が必要となりますので、詳細に関しては、下記チケットぴあ問合せ窓口へお問合せくださいますよう、お願い申し上げます。<br>
+---------<br>
+チケットぴあ　<a href="https://t.pia.jp/help/" target="_blank" rel="noopener">https://t.pia.jp/help/</a><br>
+上記URLでお問合せ内容を検索していただき、ご不明な場合はお問合せフォームよりお問合せください。<br>
+---------
+</dd>
+</dl>
+</div>
+</div>
+<div class="l-modal__box__close"></div>
+</div>
+<div class="l-modal__filter"></div>
+</div>
+
+<div class="l-modal" data-modal-id="sales-attention">
+<div class="l-modal__box">
+<div class="l-modal__box__inner">
+<div class="c-salesAttentionTitle">会場物販のご案内</div>
+<div class="l-modal__box__cont">
+<dl class="c-attentionDl">
+<dt><span>販売時間</span></dt>
+<dd>
+<span>【前日販売】10/30(水)11:00～20:00整列終了（予定）/21:00販売終了（予定）</span><br>
+<span>※チケットをお持ちのお客様のみ、ご購入いただけます。</span><br>
+<br>
+<span>【当日販売】10/31(木)9:00～終演後1時間程度予定</span><br>
+<span>※9:00～18:00は、チケットをお持ちのお客さまのみ、ご購入いただけます。</span><br>
+<br>
+各日ともに販売開始時刻は、予定時刻となっております。<br>
+当日の状況により時間が前後する可能性もございますので、あらかじめご了承ください。<br>
+<br>
+<span>前日販売の整列は、10/30(水)9:00～を予定しております。</span><br>
+<span>当日販売の整列は、水道橋駅もしくは後楽園駅に到着する始発電車でお越しいただいたお客様から、会場にてご案内させていただきます。</span><br>
+<br>
+ただし、両日とも、状況次第で時間が前後する可能性がございますことをあらかじめご了承ください。<br>
+東京ドームシティの通常営業を妨げるような状況になった場合、また、近隣施設のご迷惑になるような状況になった場合、販売計画が大幅に変更となることもございますので、徹夜や自主整列などの行為はお控えいただけますよう、重ねてお願い申し上げます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt>チケットをお持ちではない方への公演グッズ（キヨ15周年くじ以外）の販売について</dt>
+<dd>
+10/31(木)イベント当日、開演時間中のみ、22ゲート販売場所にてチケットをお持ちではない方を対象とした公演グッズ販売を実施いたします。<br>
+販売時間は『18:30～20:15』を予定しております。(整列開始予定時間 18:00)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>販売場所</span></dt>
+<dd>
+<span>
+【前日販売】<br>
+・東京ドーム22番ゲート前　特設テント<br>
+<br>
+【当日販売】<br>
+・東京ドーム22番ゲート前　特設テント<br>
+<br>
+※公演日当日、東京ドーム場内でグッズ販売は実施いたしません。<br>
+<br>
+※今回東京ドームシティプリズムホールは、『キヨ15周年くじ』引換場所となっております。<br>
+公演グッズの販売はございませんので、ご注意ください。
+</span>
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>お支払い方法</span></dt>
+<dd>
+1) 現金<br>
+2) クレジットカード：VISA・Mastercard・JCB・AMERICAN EXPRESS・Diners Club・DISCOVER<br>
+3) バーコード決済：PayPay・d払い・メルPay・auPay・銀行Pay・AliPay・wechatPay<br>
+<br>
+※上記以外の決済方法はご利用いただけませんので、あらかじめご了承ください。<br>
+※キャッシュレス決済は「一括払いのみ」となります。現金との併用利用は出来ません。<br>
+※電波状況や売り場の混雑具合により、クレジット、バーコード決済のお取り扱いを中止させていただく場合がございます。あらかじめご了承ください。<br>
+<br>
+<br>
+会場販売のデジタルオーダーシート作成システム<br>
+【『キヨの東キヨドーム in TOKYO DOME ～15th Anniversary～』クイックオーダー“QOくん”サイト】<br>
+<a href="https://qo-kun.com/td" target="_blank">https://qo-kun.com/td</a><br>
+<br>
+※10/30(水)9:00から、ご利用いただけます<br>
+<br>
+＜クイックオーダー“QOくん”とは＞<br>
+お手持ちのスマートフォンで作成でき、会場販売でご利用可能なデジタルオーダーシステムです。<br>
+当日、物販会場周辺に掲示されているQRコードを読み取り、空いた時間に専用サイトから購入したい商品を選択して「ほしいリスト」を作成いただくだけで、あなた専用のQRコード（オーダーシート）が完成。<br>
+会場物販でQRコードを提示するだけで注文が完了します。<br>
+<br>
+■QOくんご利用について<br>
+※QOくんのご利用は無料です。また、利用せず口頭でもご注文いただけます。<br>
+※商品のお取り置き・ご購入をお約束するものではございませんのでご注意ください。<br>
+※全ての商品は数に限りがございます。売り切れの際はご了承ください。<br>
+※事前にお支払いはできません。
+
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>注意事項</span></dt>
+<dd>
+※全ての商品は数に限りがあり、販売終了時間前でも無くなり次第終了となります。あらかじめご了承ください。<br>
+<br>
+※当日の混雑状況により販売開始時間が変更する場合があります。あらかじめご了承ください。<br>
+<br>
+※会場および会場周辺での徹夜および深夜から集まる行為は、近隣のご迷惑になりますので、一切禁止とさせていただきます。また、迷惑行為が発覚した場合は、運営上の判断により商品を購入いただけない場合がございます。<br>
+<br>
+※物販の待機位置での整列におきましては、現場係員の指示に従ってくださいますようご協力をお願いいたします。<br>
+<br>
+※待機列には、ご購入される方のみお並びください。お連れ様がいらっしゃる場合は、物販エリア外などでお待ち合わせください。<br>
+<br>
+※お知り合いやお友達を待たせての待機列への横入りは禁止いたします。複数回ご購入の方は、待機列の最後尾にお並びいただきますようお願いいたします。横入り等の不正は見つけ次第、最後尾にお並びいただきますのでご了承ください。<br>
+<br>
+※ご購入後、お客様都合による返品・交換はお受けできません。お買い求めいただいた商品・サイズ・数量・釣り銭等は必ずその場でご確認ください。売場を離れた後のクレーム、釣り銭間違い、申告、後日のお問い合わせにはいかなる場合であってもご対応いたしかねますので、あらかじめご了承ください。<br>
+<br>
+※不良品の場合、ご購入日当日(販売終了時間まで)公演会場でのみ交換対応が可能です。後日の対応はいかなる場合であっても一切できかねますので、必ずご購入日当日にご確認いただきますようお願い申し上げます。<br>
+尚、事前通販にてご購入された商品の不良交換は会場ではご対応できません。<br>
+事前通販に関するお問合せは、下記のいずれかの方法でお問い合わせください。<br>
+<br>
+▼メールによるお問い合わせ<br>
+<a href="https://items-store.jp/s/ectp46/form/inquiry?ima=5717" target="_blank" rel="noopener noreferrer">https://items-store.jp/s/ectp46/form/inquiry?ima=5717</a><br>
+営業時間:平日10:00〜18:00<br>
+<br>
+▼お電話によるお問い合わせ<br>
+TEL 050-2018-7920<br>
+営業時間:平日10:00〜18:00<br>
+※通話料はお客様負担となります。<br>
+<br>
+※不良交換をご希望の場合は、レシートまたは領収証を必ずご持参ください。レシートまたは領収証をご用意いただけない場合は、いかなる理由に関わらず、商品の返品・交換はいたしかねますので、あらかじめご了承ください。万が一、交換用商品がなくなってしまった場合は商品代金を払い戻しさせていただきます。<br>
+<br>
+※状況により、各商品の購入数制限を変更させていただく場合がございます。あらかじめご了承ください。<br>
+<br>
+※開演時間直前にグッズ待機列にお並びになった場合、公演時間に間に合わない可能性もございます。公演にご参加されるお客様は、お時間に十分な余裕をもってお越しください。<br>
+<br>
+※『キヨの東キヨドーム in TOKYO DOME 〜15th Anniversary〜』オフィシャルグッズの会場販売は、上記販売ブースでのみ販売されます。<br>
+露店等では一切販売しておりません。コンサート会場外の露店等で販売されている商品は、アーティストの権利を著しく侵害する違法商品ですので、購入しないようお願いいたします。<br>
+そのような事実が発覚した場合、今後のグッズ等の販売及びイベントの参加をお断りさせていただく場合がございます。<br>
+また、お客様間のトラブル等に繋がる恐れもございますので、転売目的でのご購入や転売行為、また転売された商品を購入されることは絶対におやめ頂けますようお願いいたします。<br>
+こちらが定める販売所以外でのご購入によるお客様間トラブルに関しましては、一切の責任を負いかねます。<br>
+<br>
+※当日は事故・混乱防止のため、さまざまな制限を設けさせていただく場合がございますので、あらかじめご了承ください。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨの東キヨドームin TOKYO DOME～15th Anniversary～事後通販のお知らせ</span></dt>
+<dd>
+今回も完全受注生産での事後通販を行います。<br>
+先着販売ではございませんので、期間内にお申込み頂ければ必ず商品をご購入頂けます。<br>
+但し商品のお届けに数ヶ月のお時間を要すること、ご了承ください。 詳細は追ってお知らせ致します。
+</dd>
+</dl>
+</div>
+</div>
+<div class="l-modal__box__close"></div>
+</div>
+<div class="l-modal__filter"></div>
+</div>
+<div class="l-modal" data-modal-id="goods-attention">
+<div class="l-modal__box">
+<div class="l-modal__box__inner">
+<div class="c-goodsAttentionTitle">販売商品</div>
+<div class="l-modal__box__cont">
+<dl class="c-attentionDl">
+<dt><span>キヨ猫Tシャツ白(昼下がり)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+各¥4,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫Tシャツ黒(夜明け)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+各¥4,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨとキヨ猫パーカー　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+各¥7,700(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ブランケット</span></dt>
+<dd>
+¥3,800(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>THE キヨ猫ぬいぐるみ</span></dt>
+<dd>
+¥2,000(税込) ※お一人様1会計20個まで
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ニットキャップ</span></dt>
+<dd>
+¥3,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫コーム</span></dt>
+<dd>
+¥1,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ポーチ(ブラック / グレー)</span></dt>
+<dd>
+各¥2,500(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>旅するキヨ猫缶(クッキー入り)</span></dt>
+<dd>
+¥3,500(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ハンドタオル(オリジナルパッケージ付)</span></dt>
+<dd>
+¥1,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫靴下(くるぶし丈)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+¥1,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫靴下(ショート丈)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+¥1,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ロングクッション</span></dt>
+<dd>
+¥6,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨとキヨ猫の日常トートバッグ</span></dt>
+<dd>
+¥3,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>天才キヨのイケイケアクリルキーホルダー</span></dt>
+<dd>
+¥700(税込) ※お一人様1会計10個まで
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ビッグショッパーバッグ</span></dt>
+<dd>
+¥1,000(税込)
+</dd>
+</dl>
+</div>
+</div>
+<div class="l-modal__box__close"></div>
+</div>
+<div class="l-modal__filter"></div>
+</div>
+<div class="l-modal" data-modal-id="goods-attention-after">
+<div class="l-modal__box">
+<div class="l-modal__box__inner">
+<div class="c-goodsAttentionTitle">販売商品</div>
+<div class="l-modal__box__cont">
+<dl class="c-attentionDl">
+<dt><span>キヨ猫Tシャツ白(昼下がり)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+各¥4,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫Tシャツ黒(夜明け)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+各¥4,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨとキヨ猫パーカー　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+各¥7,700(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ブランケット</span></dt>
+<dd>
+¥3,800(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>THE キヨ猫ぬいぐるみ</span></dt>
+<dd>
+¥2,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ニットキャップ</span></dt>
+<dd>
+¥3,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫コーム</span></dt>
+<dd>
+¥1,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ポーチ(ブラック / グレー)</span></dt>
+<dd>
+各¥2,500(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>旅するキヨ猫缶(クッキー入り)</span></dt>
+<dd>
+¥3,500(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ハンドタオル(オリジナルパッケージ付)</span></dt>
+<dd>
+¥1,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫靴下(くるぶし丈)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+¥1,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫靴下(ショート丈)　(サイズ：メンズ / レディース)</span></dt>
+<dd>
+¥1,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ロングクッション</span></dt>
+<dd>
+¥6,000(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨとキヨ猫の日常トートバッグ</span></dt>
+<dd>
+¥3,200(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>天才キヨのイケイケアクリルキーホルダー</span></dt>
+<dd>
+¥700(税込)
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>キヨ猫ビッグショッパーバッグ</span></dt>
+<dd>
+¥1,000(税込)
+</dd>
+</dl>
+</div>
+</div>
+<div class="l-modal__box__close"></div>
+</div>
+<div class="l-modal__filter"></div>
+</div>
+<div class="l-modal" data-modal-id="faq">
+<div class="l-modal__box">
+<div class="l-modal__box__inner">
+<div class="c-faqTitle">よくあるご質問</div>
+<div class="l-modal__box__cont">
+<dl class="c-attentionDl">
+<dt><span>チケットを持っていない同行者を連れて物販に並べますか？なお、同行者の分は購入しません。</span></dt>
+<dd>
+前日販売、当日先行販売時は、物販会場周辺の混雑が予想されますので、待機列にはチケットをお持ちでグッズをご購入される方のみお並びください。<br>
+お連れ様がいらっしゃる場合は、物販エリア外などでお待ち合わせください。<br>
+チケットをあらかじめご準備の上、お越しください。<br>
+<br>
+チケットをお持ちでない小さなお子さまをお連れのお客様につきましても、基本的には同様のご案内とさせていただきます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>ドーム周辺に宿泊する場合や別の駅から到着する場合、「水道橋駅もしくは後楽園駅に始発でお越しいただいたお客様からご案内」に合流できますか？</span></dt>
+<dd>
+当日、会場にて現場係員のご案内に従ってくださいますようご協力をお願いいたします。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>前日と当日で商品在庫は分けられているのでしょうか？</span></dt>
+<dd>
+前日販売、当日販売それぞれの各商品販売数は振り分けております。<br>
+ただし、数に限りがございますので、両日売り切れる可能性がございます。
+</dd>
+</dl>
+<dl class="c-attentionDl">
+<dt><span>通販時の個数制限はありますか？</span></dt>
+<dd>
+今回も完全受注生産での事後通販となりますので、個数制限はございません。<br>
+先着販売ではございませんので、期間内にお申込み頂ければ必ず商品をご購入頂けます。<br>
+但し商品のお届けに数ヶ月のお時間を要すること、ご了承ください。 詳細は追ってお知らせ致します。
+</dd>
+</dl>
+</div>
+</div>
+<div class="l-modal__box__close"></div>
+</div>
+<div class="l-modal__filter"></div>
+</div>
+
+<div class="l-pageTop" id="page-top"><a href="#top"><img loading="lazy" src="./assets/img/layout/page-top.webp" alt="トップに戻る"></a></div>
+
+
+</div>
+<!-- : End contents -->
+
+<!-- : javascript setting -->
+<script src="./assets/js/index.js?v=20250706190000"></script>
+
+<!-- : End javascript setting -->
+</body>
+
 </html>
