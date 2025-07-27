@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>重力</title>
     <link rel="stylesheet" href="style.css">
-     <script>
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('/blog')) {
-            const newPath = currentPath.replace('/blog', '');
-            window.location.href = newPath;
-        }
-    </script>
+ 
+    <div id="cookie-notice" class="cookie-notice">
+        このサイトではクッキーを使用しています。<br>
+        <button id="accept-btn">承認する</button>
+        <button id="reject-btn">拒否する</button>
+    </div>
 </head>
 <body>
 
@@ -85,6 +84,7 @@
         <p>&copy; yukitube</p>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
