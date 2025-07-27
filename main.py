@@ -5,7 +5,21 @@ import time
 import datetime
 import random
 from cache import cache
+from typing import Union
+from fastapi import FastAPI, Request, Response, Cookie
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.templating import Jinja2Templates
 
+# Youtube-python ライブラリをインポート
+from Youtube import Search
+
+# FastAPI アプリケーションと Jinja2Templates の初期化
+# このコードが動作するためには、'templates' という名前のディレクトリが必要です
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
+
+# グローバル変数 logs を定義
+logs = []
 
 max_api_wait_time = 3
 max_time = 10
@@ -89,21 +103,74 @@ def get_data(videoid):
     t = json.loads(apirequest(r"api/v1/videos/"+ urllib.parse.quote(videoid)))
     return [{"id":i["videoId"],"title":i["title"],"authorId":i["authorId"],"author":i["author"]} for i in t["recommendedVideos"]],list(reversed([i["url"] for i in t["formatStreams"]]))[:2],t["descriptionHtml"].replace("\n","<br>"),t["title"],t["authorId"],t["author"],t["authorThumbnails"][-1]["url"]
 
-def get_search(q,page):
+def get_search(q, page):
+    """
+    Youtube-python を使用して検索を実行し、結果を整形します。
+    元のコードの apirequest に代わるものです。
+    """
     global logs
-    t = json.loads(apirequest(fr"api/v1/search?q={urllib.parse.quote(q)}&page={page}&hl=jp"))
-    def load_search(i):
-        if i["type"] == "video":
-            return {"title":i["title"],"id":i["videoId"],"authorId":i["authorId"],"author":i["author"],"length":str(datetime.timedelta(seconds=i["lengthSeconds"])),"published":i["publishedText"],"type":"video"}
-        elif i["type"] == "playlist":
-            return {"title":i["title"],"id":i["playlistId"],"thumbnail":i["videos"][0]["videoId"],"count":i["videoCount"],"type":"playlist"}
-        else:
-            if i["authorThumbnails"][-1]["url"].startswith("https"):
-                return {"author":i["author"],"id":i["authorId"],"thumbnail":i["authorThumbnails"][-1]["url"],"type":"channel"}
-            else:
-                return {"author":i["author"],"id":i["authorId"],"thumbnail":r"https://"+i["authorThumbnails"][-1]["url"],"type":"channel"}
-    return [load_search(i) for i in t]
 
+    # 1ページあたりの項目数を20と仮定し、ページネーションのためのオフセットとリミットを計算
+    items_per_page = 20
+    offset = (page - 1) * items_per_page
+
+    # Youtube-python を使用して検索を実行し、結果の辞書リストを取得します
+    search_results_raw = Search(q, offset=offset, limit=items_per_page).result()
+
+    def load_search(i):
+        # 期間文字列（例: "3:45", "1:05:30"）を秒数に変換するヘルパー関数
+        def duration_str_to_seconds(duration_str: str) -> int:
+            if not duration_str:
+                return 0
+            parts = list(map(int, duration_str.split(':')))
+            if len(parts) == 3: # 時:分:秒 形式
+                return parts[0] * 3600 + parts[1] * 60 + parts[2]
+            elif len(parts) == 2: # 分:秒 形式
+                return parts[0] * 60 + parts[1]
+            return 0
+
+        if i["type"] == "video":
+            # 動画の詳細を抽出し、元のコードのフォーマットに合わせます
+            total_seconds = duration_str_to_seconds(i.get("duration", "0:00"))
+            formatted_length = str(datetime.timedelta(seconds=total_seconds))
+            thumbnail_url = i["thumbnails"][-1]["url"] if i.get("thumbnails") else None
+
+            return {
+                "title": i["title"],
+                "id": i["id"],
+                "authorId": i["channel"]["id"] if "channel" in i else "N/A",
+                "author": i["channel"]["name"] if "channel" in i else "N/A",
+                "length": formatted_length,
+                "published": i.get("publishedTime", "N/A"),
+                "type": "video",
+                "thumbnail": thumbnail_url
+            }
+        elif i["type"] == "playlist":
+            # プレイリストの詳細を抽出し、フォーマットに合わせます
+            thumbnail_url = i["thumbnails"][-1]["url"] if i.get("thumbnails") else None
+            video_count = int("".join(filter(str.isdigit, i.get("videoCount", "0"))))
+
+            return {
+                "title": i["title"],
+                "id": i["id"],
+                "thumbnail": thumbnail_url,
+                "count": video_count,
+                "type": "playlist"
+            }
+        else: # それ以外はチャンネルタイプと仮定
+            # チャンネルの詳細を抽出し、フォーマットに合わせます
+            thumbnail_url = i["thumbnails"][-1]["url"] if i.get("thumbnails") else None
+            if thumbnail_url and not thumbnail_url.startswith("https"):
+                thumbnail_url = r"https://" + thumbnail_url
+
+            return {
+                "author": i["name"],
+                "id": i["id"],
+                "thumbnail": thumbnail_url,
+                "type": "channel"
+            }
+    
+    return [load_search(i) for i in search_results_raw]
 def get_channel(channelid):
     global apichannels
     t = json.loads(apichannelrequest(r"api/v1/channels/"+ urllib.parse.quote(channelid)))
@@ -187,10 +254,12 @@ def video(v:str,response: Response,request: Request,yuki: Union[str] = Cookie(No
 @app.get("/search", response_class=HTMLResponse,)
 def search(q:str,response: Response,request: Request,page:Union[int,None]=1,yuki: Union[str] = Cookie(None),proxy: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
-        return redirect("/")
+        # FastAPI でのリダイレクトには RedirectResponse を使用します
+        return RedirectResponse(url="/", status_code=302)
+    
     response.set_cookie("yuki","True",max_age=60 * 60 * 24 * 7)
-    return template("search.html", {"request": request,"results":get_search(q,page),"word":q,"next":f"/search?q={q}&page={page + 1}","proxy":proxy})
-
+    
+    return templates.TemplateResponse("search.html", {"request": request,"results":get_search(q,page),"word":q,"next":f"/search?q={q}&page={page + 1}","proxy":proxy})
 @app.get("/hashtag/{tag}")
 def search(tag:str,response: Response,request: Request,page:Union[int,None]=1,yuki: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
