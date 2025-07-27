@@ -3,3 +3,4 @@ requests
 fastapi
 uvicorn
 fastapi-csrf-protect
+Youtube-python
