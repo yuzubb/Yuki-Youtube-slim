@@ -9,7 +9,7 @@ from cache import cache
 
 max_api_wait_time = 3
 max_time = 10
-apis = [r"https://lekker.gay/",r"https://youtube.076.ne.jp/",r"https://vid.puffyan.us/",r"https://inv.riverside.rocks/",r"https://invidio.xamh.de/",r"https://y.com.sb/",r"https://invidious.sethforprivacy.com/",r"https://invidious.tiekoetter.com/",r"https://inv.bp.projectsegfau.lt/",r"https://inv.vern.cc/",r"https://invidious.nerdvpn.de/",r"https://inv.privacy.com.de/",r"https://invidious.rhyshl.live/",r"https://invidious.slipfox.xyz/",r"https://invidious.weblibre.org/",r"https://invidious.namazso.eu/"]
+apis = [r"https://nyc1.iv.ggtyler.dev",r"https://cal1.iv.ggtyler.dev",r"https://invidious.nikkosphere.com",r"https://lekker.gay",r"https://invidious.f5.si",r"https://invidious.lunivers.trade",r"https://invid-api.poketube.fun",r"https://pol1.iv.ggtyler.dev",r"https://eu-proxy.poketube.fun",r"https://iv.melmac.space",r"https://invidious.reallyaweso.me",r"https://invidious.dhusch.de",r"https://usa-proxy2.poketube.fun",r"https://id.420129.xyz",r"https://invidious.darkness.service",r"https://iv.datura.network",r"https://invidious.jing.rocks",r"https://invidious.private.coffee",r"https://youtube.mosesmang.com",r"https://iv.duti.dev",r"https://invidious.projectsegfau.lt",r"https://invidious.perennialte.ch",r"https://invidious.einfachzocken.eu",r"https://invidious.adminforge.de",r"https://inv.nadeko.net",r"https://invidious.esmailelbob.xyz",r"https://invidious.0011.lt",r"https://invidious.ducks.party"]
 url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
 
 apichannels = []
